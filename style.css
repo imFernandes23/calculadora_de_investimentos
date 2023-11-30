@@ -1,0 +1,135 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --white: #e2e5e9;
+    --BlueDark: #00008B;
+    --BlueLight: #b7e4f3;
+}
+
+body{
+    background-color: var(--white);
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins";
+    flex-direction: column;
+}
+
+header{
+    height: calc(100svh - 50px);
+    display: flex;
+    align-items: center;
+
+}
+
+#container{
+    max-width: 650px;
+    padding: 25px;
+    background-color: var(--white);
+    margin: 10px;
+    border-radius: 50px;
+    box-shadow:  5px 5px 10px #c0c3c6,
+             -5px -5px 10px #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+    
+}
+
+
+
+h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: bolder;
+    color: var(--BlueDark);
+    font-size: 25px;
+    margin-bottom: 25px ;
+}
+
+#formPrincipal{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="number"]::-webkit-inner-spin-button{
+    display: none;
+}
+
+input[type = "number"]{
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    padding: 5px;
+    padding-left: 20px;
+    text-align: left;
+    width: 170px;
+    border: none;
+    border-radius: 25px;
+
+    border-radius: 37px;
+    background: var(--white);
+    box-shadow: inset 2px 2px 5px #c0c3c6,
+                inset -2px -2px 5px #ffffff;
+    border: 2px solid transparent;
+    margin: 1px 0;
+}
+
+input[type = number]:focus{
+    outline: none;
+    border: 2px solid var(--BlueDark);
+}
+
+select{
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    padding: 5px 10px;
+    margin: 2px 10px;
+    border: none;
+    border-radius: 50px;
+    background: #e2e5e9;
+    box-shadow:  5px 5px 10px #c0c3c6,
+             -5px -5px 10px #ffffff;
+    border: 2px solid transparent;
+}
+
+select:focus{
+    outline: none;
+    border-color: var(--BlueDark);
+}
+
+select option{
+    font-family: "Poppins", sans-serif;
+}
+
+select option:hover{
+    background-color: var(--BlueDark);
+}
+
+.btn-ver{
+    font-size: 15px ;
+    font-family: "Poppins", sans-serif;
+    padding: 5px 20px;
+    margin: 20px auto 0 auto;
+    width: fit-content;
+    border: 2px solid transparent;
+    background-color: var(--white);
+    border-radius: 50px;
+    box-shadow:  5px 5px 10px #c0c3c6,
+    -5px -5px 10px #ffffff;
+    transition: .5s;
+}
+
+.btn-ver:hover{
+    background-color: var(--BlueDark);
+    color: white;
+
+}

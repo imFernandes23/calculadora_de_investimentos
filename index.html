@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Investimentos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="headerDiv">
+        <div id="container" >
+            <h1>Calculadora de Investimentos</h1>
+            <form id="formPrincipal">
+    
+                <div class="subForm">
+                    <label for="capitalInicial">R$</label>
+                    <input type="number" name="capitalInicial" id="capitalInicial" placeholder="Valor Inicial" min="0" inputmode="numeric" required >
+                </div>
+    
+                <div class="subForm">
+                    <label for="aporte">R$</label>
+                    <input type="number" name="aporte" id="aporte" placeholder="Aporte Mensal" min="0" inputmode="numeric" required>
+                </div>
+    
+                <div class="subForm">
+                    <label for="taxaDeJuros">%</label>
+                    <input type="number" name="taxaDeJuros" id="taxaDeJuros" min="0" placeholder="Taxa de Juros" inputmode="numeric" required>
+                    <select id="anualJuros">
+                        <option value="mes">Mensal</option>
+                        <option value="ano">Anual</option>
+                    </select>
+                </div>
+    
+                <div class="subForm">
+                    <label for="tempo">Em</label>
+                    <input type="number" name="tempo" id="tempo" min="0" placeholder="Periodo de" inputmode="numeric" required>
+                    <select id="anualTempo">
+                        <option value="mes">Meses</option>
+                        <option value="ano">Anos</option>
+                    </select>
+                </div>
+    
+                <div class="subForm">
+                    <label for="acrecimo">Fazer acrécimo de %</label>
+                    <input type="number" name="acrecimo" id="acrecimo" placeholder="Acrécimo" min="0" inputmode="numeric" required>
+                </div>
+    
+                <div class="subForm">
+                    <label for="intervaloDeAcrecimo">A cada</label>
+                    <input type="number" name="intervaloDeAcrecimo" id="intervaloDeAcrecimo" min="0" placeholder="Periodo de" inputmode="numeric" required>
+                    <select id="anualIntervalo">
+                        <option value="mes">Meses</option>
+                        <option value="ano">Anos</option>
+                    </select>
+                </div>
+
+            </form>
+
+            <button class="btn-ver" onclick="verificar()">Verificar</button>
+        </div>
+    </header>
+
+    <main> 
+
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+
+        var dataForm = {}
+
+        function verificar(){
+
+            let capInic = parseFloat(document.getElementById("capitalInicial").value);
+            let aport = parseFloat(document.getElementById("aporte").value);
+
+            let taxJur = parseFloat(document.getElementById("taxaDeJuros").value) / 100;
+            let valor = document.getElementById("anualJuros").value;
+            let taxaJurAno = valor=="ano"?true:false;
+
+            let temp = parseInt(document.getElementById("tempo").value);
+            valor = document.getElementById("anualTempo").value;
+            let anualTemp = valor=="ano"?true:false;
+
+            let acrec = parseFloat(document.getElementById("acrecimo").value);
+
+            let interAcrec = parseFloat(document.getElementById("intervaloDeAcrecimo").value);
+            valor = document.getElementById("anualIntervalo").value;
+            let anualInter = valor=="ano"? true:false;
+
+
+            let dados = calcular(
+                capInic,
+                aport,
+                taxJur,
+                temp,
+                interAcrec,
+                acrec,
+                {
+                    anualJuros: taxaJurAno,
+                    anualTempo: anualTemp,
+                    anualIntervalo: anualInter
+                }
+            )
+            
+            console.log(dados)
+        }
+    </script>
+</body>
+</html>
