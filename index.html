@@ -41,7 +41,7 @@
                 </div>
     
                 <div class="subForm">
-                    <label for="acrecimo">Fazer acrécimo de %</label>
+                    <label for="acrecimo">Ajuste de aporte %</label>
                     <input type="number" name="acrecimo" id="acrecimo" placeholder="Acrécimo" min="0" inputmode="numeric" required>
                 </div>
     
@@ -56,39 +56,69 @@
 
             </form>
 
-            <button class="btn-ver" onclick="verificar()">Verificar</button>
+            <button class="btn" onclick="verificar()">Verificar</button>
         </div>
     </header>
 
-    <main> 
+    <main id="mainDiv"> 
+        <div class="infoData">
+            <div class="infos">
+                <button class="btn" onclick="voltar()">Voltar</button>
+                <div id="valores-finais">
+                    <p>Total Investido:</p>
+                    <p id="ti-text">R$:110000,00</p>
+                    <p>Juros Totais:</p>
+                    <p id="jt-text">R$:110000,00</p>
+                    <p>Valor Total:</p>
+                    <p id="vt-text">R$:110000,00</p>
+                </div>
+                <button class="btn">&#8595; Tabela</button>
+            </div>
 
+            <div class="chartBox pie ">
+                <canvas id="pieChart"></canvas>
+            </div>
+
+            <div class="chartBox bar ">
+                <canvas id="barChart"></canvas>
+            </div>
+
+        </div>
     </main>
 
     <footer>
 
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
+    <script src="charts.js"></script>
     <script>
-
-        var dataForm = {}
 
         function verificar(){
 
             let capInic = parseFloat(document.getElementById("capitalInicial").value);
+            capInic = capInic ? capInic : 0;
+
             let aport = parseFloat(document.getElementById("aporte").value);
+            aport = aport ? aport : 0;
+
 
             let taxJur = parseFloat(document.getElementById("taxaDeJuros").value) / 100;
+            taxJur = taxJur ? taxJur : 0;
             let valor = document.getElementById("anualJuros").value;
             let taxaJurAno = valor=="ano"?true:false;
 
             let temp = parseInt(document.getElementById("tempo").value);
+            temp = temp ? temp : 0;
             valor = document.getElementById("anualTempo").value;
             let anualTemp = valor=="ano"?true:false;
 
-            let acrec = parseFloat(document.getElementById("acrecimo").value);
+            let acrec = parseFloat(document.getElementById("acrecimo").value) /100;
+            acrec = acrec ? acrec : 0;
 
             let interAcrec = parseFloat(document.getElementById("intervaloDeAcrecimo").value);
+            interAcrec = interAcrec ? interAcrec : 0;
             valor = document.getElementById("anualIntervalo").value;
             let anualInter = valor=="ano"? true:false;
 
@@ -106,8 +136,18 @@
                     anualIntervalo: anualInter
                 }
             )
+
+
             
-            console.log(dados)
+            atualizarDados(dados)
+            headerDiv.style.display = "none";
+            mainDiv.style.display = "flex"
+ 
+        }
+
+        function voltar(){
+            headerDiv.style.display = "flex";
+            mainDiv.style.display = "none"
         }
     </script>
 </body>

@@ -4,22 +4,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 :root{
     --white: #e2e5e9;
     --BlueDark: #00008B;
-    --BlueLight: #b7e4f3;
+    --BlueLight: #73a9bb;
 }
 
 body{
     background-color: var(--white);
     width: 100vw;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: "Poppins";
     flex-direction: column;
+
 }
 
 header{
@@ -92,13 +95,15 @@ select{
     font-size: 15px;
     font-family: "Poppins", sans-serif;
     padding: 5px 10px;
-    margin: 2px 10px;
+    margin: 10px 10px;
     border: none;
     border-radius: 50px;
     background: #e2e5e9;
+    border: 2px solid transparent;
     box-shadow:  5px 5px 10px #c0c3c6,
              -5px -5px 10px #ffffff;
-    border: 2px solid transparent;
+
+    
 }
 
 select:focus{
@@ -114,11 +119,11 @@ select option:hover{
     background-color: var(--BlueDark);
 }
 
-.btn-ver{
+.btn{
     font-size: 15px ;
     font-family: "Poppins", sans-serif;
     padding: 5px 20px;
-    margin: 20px auto 0 auto;
+    margin: 10px auto 0 auto;
     width: fit-content;
     border: 2px solid transparent;
     background-color: var(--white);
@@ -128,8 +133,131 @@ select option:hover{
     transition: .5s;
 }
 
-.btn-ver:hover{
+.btn:hover{
     background-color: var(--BlueDark);
     color: white;
 
 }
+
+main{
+    width: 100vw;
+    height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.infoData{
+    width: 700px;
+    height: calc(100svh - 40px);
+    display: grid;
+    margin: 0 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    overflow: visible;
+}
+
+.infos{
+    grid-column: span 1;
+    grid-row: span 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pie{
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.bar{
+    grid-column: span 3;
+    grid-row: span 1;
+}
+
+.infos, .pie, .bar {
+    padding: 20px;
+    width: auto;
+    border-radius: 30px;
+    box-shadow:  5px 5px 10px #c0c3c6,
+             -5px -5px 10px #ffffff;
+    overflow: hidden;
+
+}
+
+#valores-finais{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    gap: 10px;
+    overflow: visible;
+}
+
+#ti-text, #jt-text, #vt-text{
+    width: 100%;
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    overflow: visible;
+}
+
+#ti-text{
+    color: var(--BlueDark);
+}
+
+#jt-text{
+    color: var(--BlueLight)
+}
+/* .chartCard {
+    width: 100svw;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--white);
+
+
+}
+
+.chartBox{
+    width: 700px;
+    height: 450px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+    border-radius: 50px;
+    box-shadow:  5px 5px 10px #c0c3c6,
+             -5px -5px 10px #ffffff;
+}
+
+.chartBox:nth-child(0){
+    background-color: red;
+}
+
+@media only screen and (max-width: 700px){
+    .chartBox{
+        width: 90%;
+        height: 45%;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .chartBox{
+        width: 300px;
+        height: 300px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .chartBox{
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+    }
+} */

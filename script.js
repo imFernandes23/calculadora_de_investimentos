@@ -6,7 +6,7 @@
 // let taxaDeJuros = 0.01;
 // let anualJuros = false;
 
-// let tempo = 12 * 50;
+// let tempo = 12 * 2;
 // let anualTempo = false
 
 // let intervaloDeAcrecimo = 12;
@@ -33,6 +33,8 @@ function calcular(
     let valorInvestido = [];
     let valorDeJuros = [];
     let valorDeJurosMes = [];
+    let valorTotal = []
+    let mes = [];
 
     let taxa = anualJuros ? ( taxaDeJuros / 12) : taxaDeJuros;
     let temp = anualTempo ? ( tempo * 12 ) : tempo;
@@ -41,11 +43,11 @@ function calcular(
     let aporteM = aporte;
     let passoAtual = 0
 
-    console.log(temp, tempo, anualTempo)
-
     valorInvestido.push(capitalInicial);
     valorDeJuros.push(0);
     valorDeJurosMes.push(0);
+    valorTotal.push(valorInvestido[0] + valorDeJuros[0])
+    mes.push('0')
 
     for(let passo = 1; passo <= temp; passo++){
         valorInvestido.push(
@@ -57,6 +59,8 @@ function calcular(
         valorDeJurosMes.push(
             (valorInvestido[passo-1] + valorDeJuros[passo-1]) * taxa
         );
+        valorTotal.push(valorInvestido[passo] + valorDeJuros[passo])
+        mes.push(passo + "° mês")
 
         passoAtual++;
         if(passoAtual == interv){
@@ -68,11 +72,13 @@ function calcular(
     return {
         valorInvestido,
         valorDeJuros,
-        valorDeJurosMes
+        valorDeJurosMes,
+        valorTotal,
+        mes
     }
 }
 
-// let data = calcular(
+// var dataForm = calcular(
 //     capitalInicial,
 //     aporte,
 //     taxaDeJuros,
@@ -85,6 +91,8 @@ function calcular(
 //         anualIntervalo: anualIntervalo
 //     }
 // )
+
+// console.log(dataForm)
 
 
 
