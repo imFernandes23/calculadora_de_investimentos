@@ -217,7 +217,7 @@ main{
 }
 
 
-@media only screen and (max-width: 550px){
+@media (max-width: 550px){
     .infoData{
         width: 100%;
         height: calc(100svh - 40px);
