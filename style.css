@@ -165,7 +165,10 @@ main{
     grid-row: span 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+
 }
 
 .pie{
@@ -189,10 +192,11 @@ main{
 }
 
 #valores-finais{
+    width: 80%;
     display: flex;
     flex-direction: column;
     font-size: 15px;
-    gap: 10px;
+    gap: 5px;
     overflow: visible;
 }
 
@@ -211,6 +215,40 @@ main{
 #jt-text{
     color: var(--BlueLight)
 }
+
+
+@media only screen and (max-width: 550px){
+    .infoData{
+        width: 100%;
+        height: calc(100svh - 40px);
+        display: grid;
+        margin: 0 10px;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        overflow: visible;
+
+    }
+
+    .infos{
+        grid-column: span 1;
+        grid-row: span 1;
+        gap: 10px;
+    }
+    
+    .pie{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    
+    .bar{
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
+
+
 /* .chartCard {
     width: 100svw;
     height: fit-content;
